@@ -1,26 +1,13 @@
 <script setup>
-import TheWelcome from '@/components/TheWelcome.vue'
-import swal from 'sweetalert'
+  import {useFlash} from "@/composables/useFlash"
 
-// eslint-disable-next-line no-undef
-let message = $ref("Hello, World!");
-
-setTimeout(() =>{
-  message = "I Have Been Changed";
-},2000);
-
-let doSomething = () => {
-  swal("doing it now");
-};
+  let {flash} = useFlash();
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-    <p>{{ message }}</p>
+  <div>
     <p>
-      <input type="text" v-model="message" />
-      <button @click="doSomething">CLick Me</button>
+      <button @click="flash('Test', 'It Works')">Click Me</button>
     </p>
-  </main>
+  </div>
 </template>
